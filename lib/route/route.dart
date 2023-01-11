@@ -13,12 +13,12 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.homeScreen,
-      page: () => const HomePageScreen(),
+      page: () =>  HomePageScreen(),
       binding: HomeBinding()
     ),
     GetPage(
       name: Routes.expenseIncomeScreen,
-      page: () => const ExpenseIncomeScreen(),
+      page: () =>  ExpenseIncomeScreen(),
 
     ),
 

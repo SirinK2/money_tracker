@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:money_tracker/route/route.dart';
 import 'package:money_tracker/utils/app_images.dart';
 
-import '../../model/onboarding_inf.dart';
+import '../../model/onboarding_model.dart';
 
 class OnBoardingController extends GetxController{
 
@@ -21,18 +21,18 @@ class OnBoardingController extends GetxController{
   }
 
 
-  List<OnBoardingInfo> onBoardingPages = [
-    OnBoardingInfo(
+  List<OnBoardingModel> onBoardingPages = [
+    OnBoardingModel(
       AppImages.welcome,
       "Say hi to your new finance tracker",
       "You're amazing for taking this first step towards getting better control over your money and financial goals.",
     ),
-    OnBoardingInfo(
+    OnBoardingModel(
       AppImages.piggyBank,
       "Control your spend and start saving",
       "Monefy helps you control your spending, track your expenses, and ultimately save more money.",
     ),
-    OnBoardingInfo(
+    OnBoardingModel(
       AppImages.goal,
       "Together we'll reach your financial goals",
       "If you fail to plan, you plan to fail. Monefy will help you stay focused on tracking your spend and reach your financial goals.",

@@ -5,10 +5,13 @@ import 'package:money_tracker/utils/app_colors.dart';
 import 'package:money_tracker/view/widgets/onboarding/green_clipper.dart';
 import 'package:money_tracker/view/widgets/text_util.dart';
 
+import '../../logic/controllers/balance_controller.dart';
+
 class OnBoardingScreen extends StatelessWidget {
   OnBoardingScreen({Key? key}) : super(key: key);
 
   final _controller = Get.find<OnBoardingController>();
+  final controller = Get.find<BalanceController>();
 
 
 
@@ -95,6 +98,7 @@ class OnBoardingScreen extends StatelessWidget {
                     elevation: 0,
                     onPressed: () async {
                       await _controller.forwardAction();
+                      controller.totalChart();
                     },
                     child: Obx(() => TextUtil(
                       text: _controller.isLastPage ? "Start": "Next",
