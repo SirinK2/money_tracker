@@ -22,51 +22,57 @@ class HomePageScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavWidget(),
       // bottomSheet: BalanceBottomSheet(),
-      body:
-          CustomScrollView(physics: AlwaysScrollableScrollPhysics(), slivers: [
-        SliverAppBar(
-          actions: [
-            IconButton(
+      body: CustomScrollView(
+        physics: AlwaysScrollableScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            actions: [
+              IconButton(
                 onPressed: () {
                   chart.value = !chart.value;
                 },
-                icon: Obx(() => Icon(
-                    chart.value ? Icons.circle_outlined : Icons.bar_chart)))
-          ],
-          shape: const ContinuousRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50))),
-          leading: IconButton(
-            onPressed: () {
-              controller.db.deleteMyDatabase();
-              // print(controller.totalChart());
-              // print(AppColors.salaryColor.toString());
-            },
-            icon: const Icon(
-              Icons.filter_alt_outlined,
-              size: 30,
-            ),
-          ),
-          elevation: 0,
-          backgroundColor: AppColors.mainColor,
-          expandedHeight: 100,
-          flexibleSpace: const FlexibleSpaceBarWidget(),
-          pinned: true,
-        ),
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              Obx(() => !chart.value ? DoughnutChart() : ColumnChart()),
-              // LineChart(),
-
-              CategoryGrid(
-                controller: controller,
+                icon: Obx(
+                  () => Icon(
+                    chart.value ? Icons.circle_outlined : Icons.bar_chart,
+                  ),
+                ),
               ),
             ],
+            shape: const ContinuousRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50))),
+            // leading: IconButton(
+            //   onPressed: () {
+            //     controller.db.deleteMyDatabase();
+            //     // print(controller.totalChart());
+            //     // print(AppColors.salaryColor.toString());
+            //   },
+            //   icon: const Icon(
+            //     Icons.filter_alt_outlined,
+            //     size: 30,
+            //   ),
+            // ),
+            elevation: 0,
+            backgroundColor: AppColors.mainColor,
+            expandedHeight: 100,
+            flexibleSpace: const FlexibleSpaceBarWidget(),
+            pinned: true,
           ),
-        )
-      ]),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                Obx(() => !chart.value ? DoughnutChart() : ColumnChart()),
+                // LineChart(),
+
+                CategoryGrid(
+                  controller: controller,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

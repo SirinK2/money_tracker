@@ -35,7 +35,7 @@ class DoughnutChart extends StatelessWidget {
 
                           },
                           dataLabelSettings:
-                          const DataLabelSettings(isVisible: false),
+                          const DataLabelSettings(isVisible: true),
                           enableTooltip: true),
                     ],
                   ),

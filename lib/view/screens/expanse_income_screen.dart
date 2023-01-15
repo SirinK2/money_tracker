@@ -126,40 +126,42 @@ class ExpenseIncomeScreen extends StatelessWidget {
                           color: data.color,
                           text: data.categoryName,
                           onSelected: () {
-                            // if (controller.textController.text) {
+                            // if (controller.textController.text.isNotEmpty) {
+                              controller.addData(Get.arguments == 1
+                                  ? Chart(
+                                categoryName: data.categoryName,
+                                amount:
+                                double.parse("-${textController.text.trim()}"),
+                                color: data.color,
+                                icon: data.icon,
+                                id: const Uuid().v4(),
+                                date: controller.date.isNotEmpty
+                                    ? controller.dateFormatStr
+                                    : controller.dateFormatNow,
+                              )
+                                  : Chart(
+                                categoryName: data.categoryName,
+                                amount:
+                                double.parse(textController.text.trim()),
+                                color: data.color,
+                                icon: data.icon,
+                                id: const Uuid().v4(),
+                                date: controller.date.isNotEmpty
+                                    ? controller.dateFormatStr
+                                    : controller.dateFormatNow,
+                              ));
+                              Get.arguments == 1
+                                  ? controller.sumBalance(
+                                  -double.parse(textController.text.trim()))
+                                  : controller.sumBalance(
+                                  double.parse(textController.text.trim()));
 
-                            controller.addData(Get.arguments == 1
-                                ? Chart(
-                                    categoryName: data.categoryName,
-                                    amount:
-                                        double.parse("-${textController.text.trim()}"),
-                                    color: data.color,
-                                    icon: data.icon,
-                                    id: const Uuid().v4(),
-                                    date: controller.date.isNotEmpty
-                                        ? controller.dateFormatStr
-                                        : controller.dateFormatNow,
-                                  )
-                                : Chart(
-                                    categoryName: data.categoryName,
-                                    amount:
-                                        double.parse(textController.text.trim()),
-                                    color: data.color,
-                                    icon: data.icon,
-                                    id: const Uuid().v4(),
-                                    date: controller.date.isNotEmpty
-                                        ? controller.dateFormatStr
-                                        : controller.dateFormatNow,
-                                  ));
-                            Get.arguments == 1
-                                ? controller.sumBalance(
-                                    -double.parse(textController.text.trim()))
-                                : controller.sumBalance(
-                                    double.parse(textController.text.trim()));
-
-                            Get.back();
+                              Get.back();
+                              // }else{
+                              //   Get.snackbar("Numbers only", "Please enter number only");
+                              // }
                             // }else{
-                            //   Get.snackbar("Numbers only", "Please enter number only");
+                            //   Get.snackbar("", "Please enter money amount");
                             // }
                           },
                           containerSize: 65,

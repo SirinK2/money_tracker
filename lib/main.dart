@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_tracker/route/route.dart';
+import 'package:money_tracker/utils/app_colors.dart';
 import 'package:money_tracker/view/screens/homepage_screen.dart';
 import 'package:money_tracker/view/screens/onboarding_screen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       initialRoute: Routes.onBoardingScreen,
       getPages: AppRoutes.routes,
