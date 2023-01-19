@@ -3,8 +3,7 @@ class AppImages{
   static const piggyBank = 'assets/piggy_bank.png';
   static const goal = 'assets/goal.png';
 
-
-
+  
   static const carIcon = 'assets/icons/car_icon.png';
   static const depositsIcon = 'assets/icons/deposits_icon.png';
   static const entertainmentIcon = 'assets/icons/entertainment_icon.png';

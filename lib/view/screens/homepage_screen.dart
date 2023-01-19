@@ -23,7 +23,7 @@ class HomePageScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavWidget(),
       // bottomSheet: BalanceBottomSheet(),
       body: CustomScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         slivers: [
           SliverAppBar(
             actions: [
@@ -44,7 +44,7 @@ class HomePageScreen extends StatelessWidget {
                     bottomRight: Radius.circular(50))),
             // leading: IconButton(
             //   onPressed: () {
-            //     controller.db.deleteMyDatabase();
+            //     // controller.db.deleteMyDatabase();
             //     // print(controller.totalChart());
             //     // print(AppColors.salaryColor.toString());
             //   },

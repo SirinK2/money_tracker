@@ -10,7 +10,6 @@ import '../../utils/app_colors.dart';
 import '../../utils/app_images.dart';
 
 class BalanceController extends GetxController {
-  final TextEditingController textController = TextEditingController();
 
   var balance = 0.0.obs;
   var income = <double>[].obs;
@@ -258,6 +257,9 @@ print(gridList1.length);
       firstDate: DateTime(1999),
       lastDate: DateTime(2999),
     );
+
+
+    
 
     if (datePicker != null) {
       date.value = datePicker.toString();

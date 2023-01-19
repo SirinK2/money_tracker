@@ -5,6 +5,7 @@ import 'package:money_tracker/view/widgets/text_util.dart';
 
 import '../../../logic/controllers/balance_controller.dart';
 import 'expense_income_btn.dart';
+import 'money_history_widget.dart';
 
 class BottomNavWidget extends StatelessWidget {
   BottomNavWidget({Key? key}) : super(key: key);
@@ -29,96 +30,21 @@ class BottomNavWidget extends StatelessWidget {
           Obx(
             () => InkWell(
               onTap: () {
-                Get.bottomSheet(Container(
-                  width: Get.width,
-                  height: Get.height,
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          topLeft: Radius.circular(20))),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: controller.chartDbList.length,
-                          itemBuilder: (_, index) {
-                            var data = controller.chartDbList[index];
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
+                Get.bottomSheet(
 
-
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                decoration: BoxDecoration(
-
-                                                    shape: BoxShape.circle,
-                                                    color: data.amount
-                                                        .toString()
-                                                        .startsWith("-")
-                                                        ? Colors.red
-                                                        : Colors.green),
-                                              ),
-                                              SizedBox(width: 10,),
-
-                                              TextUtil(
-                                                text: data.categoryName,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                textAlign: TextAlign.start,
-                                              ),
-                                            ],
-                                          ),
-                                          TextUtil(
-                                            text: data.date,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.grey.shade700,
-                                            textAlign: TextAlign.start,
-                                          ),
-                                        ],
-                                      ),
-
-                                      Text(
-                                        "${data.amount.toStringAsFixed(2)} USD",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Divider()
-                              ],
-                            );
-                          },
-                        ),
-                      ],
-                    ),
+                  Container(
+                    width: Get.width,
+                    height: Get.height * 0.75,
+                    padding: const EdgeInsets.only(top: 20),
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            topLeft: Radius.circular(20))),
+                    child: MoneyHistoryWidget(controller: controller),
                   ),
-                ));
+                  isScrollControlled: true,
+                );
               },
               child: Container(
                 width: 150,
@@ -128,7 +54,7 @@ class BottomNavWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 child: Center(
                   child: Text(
-                    "Balance ${controller.balance.value}",
+                    "Balance ${controller.balance.value.toStringAsFixed(1)}",
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 12,
@@ -152,3 +78,5 @@ class BottomNavWidget extends StatelessWidget {
     );
   }
 }
+
+

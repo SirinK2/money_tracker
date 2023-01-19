@@ -126,7 +126,7 @@ class ExpenseIncomeScreen extends StatelessWidget {
                           color: data.color,
                           text: data.categoryName,
                           onSelected: () {
-                            // if (controller.textController.text.isNotEmpty) {
+                            if (textController.text.isNotEmpty && textController.text.isNum) {
                               controller.addData(Get.arguments == 1
                                   ? Chart(
                                 categoryName: data.categoryName,
@@ -157,12 +157,11 @@ class ExpenseIncomeScreen extends StatelessWidget {
                                   double.parse(textController.text.trim()));
 
                               Get.back();
-                              // }else{
-                              //   Get.snackbar("Numbers only", "Please enter number only");
-                              // }
-                            // }else{
-                            //   Get.snackbar("", "Please enter money amount");
-                            // }
+                              }else{
+                                Get.snackbar("Numbers only", "Please enter numbers only");
+
+                              }
+
                           },
                           containerSize: 65,
                           iconSize: 50,

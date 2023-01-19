@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'dart:ffi';
 
-import 'package:flutter/material.dart';
-import 'dart:convert';
 Chart chartFromJson(String str){
   final jsonData = json.decode(str);
   return Chart.fromMap(jsonData);
