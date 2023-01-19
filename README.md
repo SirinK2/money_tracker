@@ -1,16 +1,38 @@
 # money_tracker
 
-A new Flutter project.
+# App Description
 
-## Getting Started
+Mobile app to help you to track your money.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+# Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Add Income and Expense.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Two type of charts to show you your Income/Expense by category.
+
+- The balance of your Income/Expense.
+
+
+
+# Files Structure
+
+MVC pattern.
+
+# PlugIn Use
+
+Please make sure you add this plugins for running this.
+
+- [Getx](https://pub.dev/packages/get) 
+
+- [Google fonts](https://pub.dev/packages/google_fonts)
+
+- [Syncfusion flutter charts](https://pub.dev/packages/syncfusion_flutter_charts)
+
+- [Sqflite](https://pub.dev/packages/sqflite)
+
+- [Path provider](https://pub.dev/packages/path_provider)
+
+- [Intl](https://pub.dev/packages/intl)
+
+- [Uuid](https://pub.dev/packages/uuid)
