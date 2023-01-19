@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_tracker/logic/controllers/balance_controller.dart';
-import 'package:money_tracker/utils/app_strings.dart';
 import 'package:money_tracker/view/widgets/home/flexible_space_bar.dart';
 import '../../utils/app_colors.dart';
 import '../widgets/home/category_grid.dart';
 import '../widgets/home/bottom_nav_widget.dart';
 import '../widgets/home/doughnut_chart.dart';
 import '../widgets/home/column_chart.dart';
-import '../widgets/home/line_chart.dart';
 
 class HomePageScreen extends StatelessWidget {
   HomePageScreen({Key? key}) : super(key: key);

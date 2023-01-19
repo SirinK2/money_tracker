@@ -41,10 +41,7 @@ class LineChart extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Center(
-                      //   child: Text(
-                      //       "${controller.income.sum} \n${controller.expense.sum}"),
-                      // )
+
                     ],
                   )
                 : SfCircularChart(

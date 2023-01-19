@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_tracker/route/route.dart';
-import 'package:money_tracker/view/widgets/text_util.dart';
 
 import '../../../logic/controllers/balance_controller.dart';
 import 'expense_income_btn.dart';

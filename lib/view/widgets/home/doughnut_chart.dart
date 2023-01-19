@@ -39,10 +39,7 @@ class DoughnutChart extends StatelessWidget {
                           enableTooltip: true),
                     ],
                   ),
-                  // Center(
-                  //   child: Text(
-                  //       "${controller.income.sum} \n${controller.expense.sum}"),
-                  // )
+
                 ],
               )
                   : SfCircularChart(

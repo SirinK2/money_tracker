@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_tracker/logic/controllers/balance_controller.dart';
 import 'package:money_tracker/utils/app_colors.dart';
-import 'package:money_tracker/view/widgets/categories/category_icon.dart';
 import 'package:money_tracker/view/widgets/text_util.dart';
-import 'package:uuid/uuid.dart';
-import '../../model/category_model.dart';
+
 import '../widgets/date_picker.dart';
+import '../widgets/expenseIncome/category_grid_view_widget.dart';
 
 class ExpenseIncomeScreen extends StatelessWidget {
   ExpenseIncomeScreen({Key? key}) : super(key: key);
@@ -43,15 +42,10 @@ class ExpenseIncomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Align(alignment: Alignment.center, child: DatePikerWidget()
-                      // TextUtil(
-                      //   text: '5 Jan 2023',
-                      //   fontSize: 18,
-                      //   fontWeight: FontWeight.bold,
-                      //   color: Colors.black,
-                      //   textAlign: TextAlign.center,
-                      // ),
-                      ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: DatePikerWidget(),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -69,7 +63,7 @@ class ExpenseIncomeScreen extends StatelessWidget {
                             )),
                         child: const Center(
                           child: TextUtil(
-                            text: "\$USD",
+                            text: "SAR",
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
@@ -107,68 +101,8 @@ class ExpenseIncomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 200,
-                    child: GridView.builder(
-                      itemCount: Get.arguments == 1
-                          ? controller.expenseCategoryList.length
-                          : controller.incomeCategoryList.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3, childAspectRatio: 1.5),
-                      itemBuilder: (_, index) {
-                        var data = Get.arguments == 1
-                            ? controller.expenseCategoryList[index]
-                            : controller.incomeCategoryList[index];
-
-                        return CategoryIcon(
-                          icon: data.icon,
-                          color: data.color,
-                          text: data.categoryName,
-                          onSelected: () {
-                            if (textController.text.isNotEmpty && textController.text.isNum) {
-                              controller.addData(Get.arguments == 1
-                                  ? Chart(
-                                categoryName: data.categoryName,
-                                amount:
-                                double.parse("-${textController.text.trim()}"),
-                                color: data.color,
-                                icon: data.icon,
-                                id: const Uuid().v4(),
-                                date: controller.date.isNotEmpty
-                                    ? controller.dateFormatStr
-                                    : controller.dateFormatNow,
-                              )
-                                  : Chart(
-                                categoryName: data.categoryName,
-                                amount:
-                                double.parse(textController.text.trim()),
-                                color: data.color,
-                                icon: data.icon,
-                                id: const Uuid().v4(),
-                                date: controller.date.isNotEmpty
-                                    ? controller.dateFormatStr
-                                    : controller.dateFormatNow,
-                              ));
-                              Get.arguments == 1
-                                  ? controller.sumBalance(
-                                  -double.parse(textController.text.trim()))
-                                  : controller.sumBalance(
-                                  double.parse(textController.text.trim()));
-
-                              Get.back();
-                              }else{
-                                Get.snackbar("Numbers only", "Please enter numbers only");
-
-                              }
-
-                          },
-                          containerSize: 65,
-                          iconSize: 50,
-                        );
-                      },
-                    ),
-                  ),
+                  CategoryGridViewWidget(
+                      controller: controller, textController: textController),
                   const SizedBox(
                     height: 0,
                   ),

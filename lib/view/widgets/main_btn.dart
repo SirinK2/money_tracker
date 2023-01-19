@@ -14,7 +14,6 @@ class MainBtn extends StatelessWidget {
         width: Get.width - 40,
         height: 50,
         decoration: BoxDecoration(
-            // borderRadius: BorderRadius.circular(20)
             ),
         child: ElevatedButton(
           onPressed: onPressed,

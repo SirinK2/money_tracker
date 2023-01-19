@@ -7,15 +7,7 @@ class FlexibleSpaceBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlexibleSpaceBar(
-      // background: Center(
-      //   child: Text(
-      //     'Monefy',
-      //     style: GoogleFonts.satisfy(
-      //         fontSize: 30,
-      //         color: Colors.white
-      //     ),
-      //   ),
-      // ),
+
       title: Text(
         'Monefy',
         style: GoogleFonts.satisfy(
